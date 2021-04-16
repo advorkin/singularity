@@ -8,5 +8,5 @@ MAINTAINER advorkin
     PATH="${PATH}":/usr/local/bin/bin/:/opt/conda/bin
 
 %post
-/opt/conda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge \
-&& conda clean -afy
+/opt/conda/bin/conda install pytorch torchvision torchaudio  -c pytorch -c conda-forge \
+&& /opt/conda/bin/conda clean -afy
