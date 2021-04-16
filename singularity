@@ -1,19 +1,12 @@
 Bootstrap: docker
 From: continuumio/miniconda3
 
-%files
-. .
-%post
+%labels
+MAINTAINER advorkin
 
-# or conda install from environment.yaml
+%environment
+    PATH="${PATH}":/usr/local/bin/bin/
+
+%post
 conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge \
 && conda clean -afy
-
-# project files and data. this is what needs to be synced locally and to cluster
-
-# some run command
-
-%runscript
-exec /bin/bash python test_docker.py "$@"
-%startscript
-exec /bin/bash python test_docker.py "$@"
