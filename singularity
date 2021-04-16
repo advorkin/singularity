@@ -5,8 +5,8 @@ From: continuumio/miniconda3
 MAINTAINER advorkin
 
 %environment
-    PATH="${PATH}":/usr/local/bin/bin/
+    PATH="${PATH}":/usr/local/bin/bin/:/opt/conda/bin
 
 %post
-conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge \
+/opt/conda/bin/conda install pytorch torchvision torchaudio cudatoolkit=11.1 -c pytorch -c conda-forge \
 && conda clean -afy
